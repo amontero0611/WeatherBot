@@ -1,0 +1,18 @@
+Dentro de la instancia Cloudant conectada a la app nodered, hacer lo siguiente:
+
+- Crear una base de datos llamada "localidades".
+
+- Crear un nuevo Design Document de tipo Search Index.
+
+- Llamar al índice "ciudad" y rellenar su search index function con este código:
+
+-----
+function(doc){
+  if (doc.ciudad) {
+     index("ciudad", doc.ciudad, {"store": true});
+ }
+}
+-----
+
+- Cargar la base de datos con el flujo nodered de bulk insert y probar a hacer queries
+con el flujo de queries.
